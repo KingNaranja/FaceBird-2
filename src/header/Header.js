@@ -28,7 +28,7 @@ const Header = ({ user }) => (
     <h1>FaceBird</h1>
     <span>The Newest Social Network</span>
     <nav>
-      { user && <span>Welcome, {user.email}</span>}
+      { user && <span>Welcome back, {user.nickname}</span>}
       { user ? authenticatedOptions : unauthenticatedOptions }
       { alwaysOptions }
     </nav>
