@@ -15,6 +15,7 @@ export const signUp = credentials => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
+      nickname: credentials.nickname,
       credentials: {
         email: credentials.email,
         password: credentials.password,
