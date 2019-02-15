@@ -10,6 +10,8 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 
+// homepage component
+import Home from './Home'
 // feed Component
 import Feed from './feed/components/feed'
 
@@ -50,7 +52,7 @@ class App extends Component {
         
         <main className="container">
           {/* Routes */}
-          {/* <Route exact path='/' component={Home}/> */}
+          <Route exact path='/' component={Home}/>
           <Route path='/sign-up' render={() => (
             <SignUp flash={this.flash} setUser={this.setUser} />
           )} />
