@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import RecentPost from './RecentPost'
 import AllPosts from './AllPosts'
-
+import '../feed.scss'
 
 
 class Feed extends Component {
@@ -17,9 +17,9 @@ class Feed extends Component {
     const {getUser, setUser, user} = this.props
 
     return (
-      <div> 
+      <div className='feed'> 
         <RecentPost  getUser={this.props.getUser} user={this.state.user} />
-        {/* <AllPosts getUser setUser user={this.state}/> */}
+        <AllPosts getUser={this.props.getUser} user={this.state.user}/>
       </div>
     )
   }
