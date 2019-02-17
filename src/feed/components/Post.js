@@ -6,7 +6,7 @@ const Post = props => {
 
   return (
     <div>
-      <div className="props.nick">
+      <div className="post-header">
         <h4>{ props.nickname}</h4>
       </div>
       <div className="post-body">
