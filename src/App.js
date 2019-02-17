@@ -59,8 +59,8 @@ class App extends Component {
           <Route path='/sign-in' render={() => (
             <SignIn flash={this.flash} setUser={this.setUser} />
           )} />
-          <Route path='/feed' render={() => (
-            <Feed flash={this.flash} getUser={this.getUser} setUser={this.setUser} user={user} />
+          <AuthenticatedRoute user={user} path='/feed' render={() => (
+            <Feed flash={this.flash} getUser={this.getUser} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut flash={this.flash} clearUser={this.clearUser} user={user} />
