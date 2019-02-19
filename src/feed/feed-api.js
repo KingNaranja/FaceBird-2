@@ -1,19 +1,6 @@
 import apiUrl from '../apiConfig.js'
-
-export const createPost = ( user, post ) => {
-  return fetch(apiUrl + '/posts',{
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Token token=${user.token}`
-    },
-    body: JSON.stringify({
-      post: {
-        text: post
-      }
-    })
-  })
-}
+// take user auth token
+// and fetch posts data for Feed 
 
 export const getAllPosts = ( user ) => {
   return fetch(apiUrl + '/posts',{
@@ -33,30 +20,6 @@ export const getLatestPost = ( user ) => {
   })
 }
 
-export const updatePost = ( user, newPost, postId ) => {
-  return fetch(apiUrl + `/posts/${postId}`,{
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Token token=${user.token}`
-    },
-    body: JSON.stringify({
-      post: {
-        text: newPost
-      }
-    })
-  })
-}
-
-export const deletePost = ( user, postId )=> {
-  return fetch(apiUrl + `/posts/${postId}`,{
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Token token=${user.token}`}
-  })
-}
-
 export const getAllMyPosts = ( user ) => {
   return fetch(apiUrl + '/posts/myPosts',{
     method: 'GET',
@@ -66,11 +29,3 @@ export const getAllMyPosts = ( user ) => {
   })
 }
 
-export const getOnePost = ( user, postId ) => {
-  return fetch(apiUrl + `/posts/${postId}`,{
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Token token=${user.token}`}
-  })
-}
