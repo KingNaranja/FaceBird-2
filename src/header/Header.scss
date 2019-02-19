@@ -1,4 +1,6 @@
 $charcoal: #bbb;
+$storm: #4D6A6D;
+$space: #252B35;
 
 .main-header {
   align-items: center;
@@ -10,8 +12,13 @@ $charcoal: #bbb;
 
   a,
   span {
+    color: $space;
     font-size: 1.2em;
     margin: 0 15px;
+    text-decoration: none;
+    :hover{
+      color: $storm;
+    }
   }
 }
 
@@ -57,4 +64,8 @@ $charcoal: #bbb;
        
     }
   }
+}
+
+.facebird > a {
+  text-decoration: none;
 }

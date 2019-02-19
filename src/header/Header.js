@@ -25,7 +25,7 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <header className="main-header">
-    <h1>FaceBird</h1>
+    <Link to={'/'} activeClassName="facebird"><h1>FaceBird</h1></Link>
     <span>The Newest Social Network</span>
     <nav className='nav flex-column justify-content'>
       { user && <span>Welcome back, {user.nickname}</span>}
