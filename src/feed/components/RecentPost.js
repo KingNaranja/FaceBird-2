@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import Post from './Post'
+import Post from '../../post/components/Post'
 import '../recentPost.scss'
-import '../post.scss'
 
 import { getLatestPost, updatePost, deletePost } from '../feed-api'
 

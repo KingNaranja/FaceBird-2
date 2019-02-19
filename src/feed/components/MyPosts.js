@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Post from './Post'
+import Post from '../../post/components/Post'
 import {getAllMyPosts} from '../feed-api'
 
 
