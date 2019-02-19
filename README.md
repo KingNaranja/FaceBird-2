@@ -19,7 +19,7 @@ Links to Facebird deployed sites:
 ### Client
 This client is my remake of the collaborative [project](https://github.com/NeedsMoreCaramel/Facebird-Client) from my team from General Assembly. It is also my first React App!
 
-My goal for this repo is demonstrating some common web app functionality using 
+My goal for this repo is learning as well as demonstrating some common web app functionality using 
 React such as routing, registration and authentication. 
 
 
