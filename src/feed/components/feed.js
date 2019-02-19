@@ -17,9 +17,9 @@ class Feed extends Component {
     const {getUser, setUser, user} = this.props
 
     return (
-      <div className='feed'> 
-        <RecentPost  getUser={this.props.getUser} user={this.state.user} />
-        <AllPosts getUser={this.props.getUser} user={this.state.user}/>
+      <div className='feed row no-gutters'> 
+        <RecentPost className='col-md' getUser={this.props.getUser} user={this.state.user} />
+        <AllPosts className='col-md' getUser={this.props.getUser} user={this.state.user}/>
       </div>
     )
   }

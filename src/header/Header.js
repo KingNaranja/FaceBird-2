@@ -27,7 +27,7 @@ const Header = ({ user }) => (
   <header className="main-header">
     <h1>FaceBird</h1>
     <span>The Newest Social Network</span>
-    <nav >
+    <nav className='nav flex-column justify-content'>
       { user && <span>Welcome back, {user.nickname}</span>}
       { user ? authenticatedOptions : unauthenticatedOptions }
       { alwaysOptions }

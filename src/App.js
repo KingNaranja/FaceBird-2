@@ -46,30 +46,39 @@ class App extends Component {
     const { flashMessage, flashType, user } = this.state
 
     return (
-      <React.Fragment>
-        <Header user={user} />
-        {flashMessage && <h3 className={flashType}>{flashMessage}</h3>}
+      <div className='container'>
+        <div className="row no-gutters">
+          <React.Fragment>
+
+            <Header className='col-md-3' user={user} />
+            {flashMessage && <h3 className={flashType}>{flashMessage}</h3>}
+            
+            <main className='main text-center col-md-6' >
+              {/* Routes */}
+              <Route exact path='/' component={Home}/>
+              <Route path='/sign-up' render={() => (
+                <SignUp flash={this.flash} setUser={this.setUser} />
+              )} />
+              <Route path='/sign-in' render={() => (
+                <SignIn flash={this.flash} setUser={this.setUser} />
+              )} />
+              <AuthenticatedRoute user={user} path='/feed' render={() => (
+                <Feed className='' flash={this.flash} getUser={this.getUser} user={user} />
+              )} />
+              <AuthenticatedRoute user={user} path='/sign-out' render={() => (
+                <SignOut flash={this.flash} clearUser={this.clearUser} user={user} />
+              )} />
+              <AuthenticatedRoute user={user} path='/change-password' render={() => (
+                <ChangePassword flash={this.flash} user={user} />
+              )} />
+            </main>
+          </React.Fragment>
+
+        </div>
         
-        <main className="container">
-          {/* Routes */}
-          <Route exact path='/' component={Home}/>
-          <Route path='/sign-up' render={() => (
-            <SignUp flash={this.flash} setUser={this.setUser} />
-          )} />
-          <Route path='/sign-in' render={() => (
-            <SignIn flash={this.flash} setUser={this.setUser} />
-          )} />
-          <AuthenticatedRoute user={user} path='/feed' render={() => (
-            <Feed flash={this.flash} getUser={this.getUser} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} path='/sign-out' render={() => (
-            <SignOut flash={this.flash} clearUser={this.clearUser} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} path='/change-password' render={() => (
-            <ChangePassword flash={this.flash} user={user} />
-          )} />
-        </main>
-      </React.Fragment>
+
+      </div>
+      
     )
   }
 }

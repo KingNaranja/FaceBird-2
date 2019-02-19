@@ -5,6 +5,8 @@ import { handleErrors, signUp, signIn } from '../api'
 import messages from '../messages'
 import apiUrl from '../../apiConfig'
 
+import '../auth.scss'
+
 class SignUp extends Component {
   constructor () {
     super()

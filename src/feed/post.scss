@@ -1,0 +1,21 @@
+.post {
+  width: 70vw;
+  border-radius: 2.5vh;
+  // margin-left: 1vw;
+  .post-header {
+    justify-content: space-around;
+  }
+  .post-body {
+    padding: 2vh;
+  }
+  
+}
+
+@media (max-width: 600px){
+  h4,h5,p {
+    font-size: 90%;
+  }
+  .post{
+    width: 90vw;
+  }
+}

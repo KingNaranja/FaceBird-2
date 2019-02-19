@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Post from './Post'
+import '../recentPost.scss'
+import '../post.scss'
 
 import { getLatestPost, updatePost, deletePost } from '../feed-api'
 
@@ -48,9 +50,9 @@ export class RecentPost extends Component {
     const lastPost = this.state.post
 
     return (
-      <div>
+      <div className='recent-post abs'>
         <h2>Your Latest Post</h2>
-        <Post  text={lastPost.text} date={lastPost.date} nickname={lastPost.nickname} id={lastPost.id}/>
+        <Post text={lastPost.text} date={lastPost.date} nickname={lastPost.nickname} id={lastPost.id}/>
       </div>
     )
   }

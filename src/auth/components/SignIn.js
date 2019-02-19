@@ -5,6 +5,8 @@ import { signIn } from '../api'
 import messages from '../messages'
 import apiUrl from '../../apiConfig'
 
+import '../auth.scss'
+
 class SignIn extends Component {
   constructor () {
     super()
