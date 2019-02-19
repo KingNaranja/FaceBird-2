@@ -14,6 +14,8 @@ import ChangePassword from './auth/components/ChangePassword'
 import Home from './Home'
 // feed Component
 import Feed from './feed/components/feed'
+// profile component 
+import Profile from './profile/components/Profile'
 
 class App extends Component {
   constructor () {
@@ -70,6 +72,9 @@ class App extends Component {
               )} />
               <AuthenticatedRoute user={user} path='/change-password' render={() => (
                 <ChangePassword flash={this.flash} user={user} />
+              )} />
+              <AuthenticatedRoute user={user} path='/profile' render={() => (
+                <Profile className='' flash={this.flash} getUser={this.getUser} user={user}/>
               )} />
             </main>
           </React.Fragment>
