@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+// CreatePost Component
+import CreatePost from '../../post/components/Create-Post'
 // MyPost feed component 
 import MyPosts from '../../feed/components/MyPosts'
 
@@ -15,6 +17,7 @@ export class Profile extends Component {
 
     return (
       <div>
+        <CreatePost user={user} />
         <MyPosts user={user}/>
       </div>
     )
