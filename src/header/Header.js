@@ -28,7 +28,7 @@ const Header = ({ user }) => (
     <Link to={'/'}><h1>FaceBird</h1></Link>
     <span>The Newest Social Network</span>
     <nav className='nav flex-column justify-content'>
-      { user && <span>Welcome back, <Link to={'/profile'} activeClassName="user">{user.nickname}</Link></span>}
+      { user && <span>Welcome back, <Link to={ '/profile' }>{user.nickname}</Link></span>}
       { user ? authenticatedOptions : unauthenticatedOptions }
       { alwaysOptions }
     </nav>
