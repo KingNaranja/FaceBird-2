@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Post from '../../post/components/Post'
 import { getAllMyPosts } from '../feed-api'
-
+import '../../profile/profile.scss'
 
 export class MyPosts extends Component {
   constructor(props) {

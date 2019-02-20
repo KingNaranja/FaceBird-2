@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import '../profile.scss'
 // CreatePost Component
 import CreatePost from '../../post/components/Create-Post'
 // MyPost feed component 
@@ -20,7 +20,7 @@ export class Profile extends Component {
     const { user } = this.props
 
     return (
-      <div>
+      <div className='profile'>
         <PostProvider user={user}>
           <PostConsumer>
             { ({ posts, addPosts }) => (

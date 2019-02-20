@@ -40,7 +40,7 @@ class CreatePost extends Component {
 
   render() {
     return (
-      <form onSubmit={ this.onCreatePost } className=" new-post form-inline justify-content-center">
+      <form onSubmit={ this.onCreatePost } className="new-post form-inline justify-content-center m-0">
         <div className="form-group">
           <legend>What&apos;s on your mind?</legend>
         </div>
