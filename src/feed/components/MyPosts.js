@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Post from '../../post/components/Post'
-import {getAllMyPosts} from '../feed-api'
-
+import { getAllMyPosts } from '../feed-api'
 
 
 export class MyPosts extends Component {
@@ -22,26 +21,27 @@ export class MyPosts extends Component {
   }
 
   onGetMyPosts = () => {
+    const { addPosts, posts } = this.props
+
     // fetch all posts
     getAllMyPosts(this.props.user)
       .then(response =>{return response.json()})
       .then( (response) =>{
         // update state with posts
-        this.setState({
-          posts: response.posts
-        })
+        addPosts(response.posts)
       })
     
   }
 
   render() {
+    const { posts } = this.props
 
     return (
-      <div>
+      <div className='my-posts'>
         {/* all user's posts */}
         <h2>Your Posts</h2>
         {
-          this.state.posts.map( post => (
+          posts.map( post => (
             <Post  className='post' key={post._id} text={post.text} nickname={post.owner.nickname} date={post.updatedAt.slice(0, 10)}/>
             
           ))
