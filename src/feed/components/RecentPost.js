@@ -9,9 +9,8 @@ export class RecentPost extends Component {
     super(props)
 
     this.state = {
-      user: props.getUser(),
       post: {
-        text: '',
+        text: 'Join the Conversation!',
         id: null,
         nickname: '',
         date: null
@@ -30,16 +29,22 @@ export class RecentPost extends Component {
     getLatestPost(this.props.user)
       .then(response =>{return response.json()})
       .then( (response) =>{
-        // update state with the last post
-        this.setState({
-          post: {
-            text: response.post.text,
-            id: response.post._id,
-            nickname: response.post.owner.nickname,
-            // date is a substring of the full date object
-            date: response.post.createdAt.slice(0, 10)
-          }
-        })
+
+        if (response.post) {
+          // update state with the last post
+          this.setState({
+            post: {
+              text: response.post.text,
+              id: response.post._id,
+              nickname: response.post.owner.nickname,
+              // date is a substring of the full date object
+              date: response.post.createdAt.slice(0, 10)
+            }
+          })
+        } else {
+          return this.state.post
+        }
+        
       })
      
   }
