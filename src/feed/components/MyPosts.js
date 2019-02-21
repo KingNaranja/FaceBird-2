@@ -9,10 +9,7 @@ export class MyPosts extends Component {
     this.state = {
       posts: []
     }
-    console.log(props)
   }
-
- 
 
   componentDidMount = () => {
     // after the initial render, fetch post data
@@ -33,8 +30,9 @@ export class MyPosts extends Component {
     
   }
 
+
   render() {
-    const { posts } = this.props
+    const { posts, user, removePost } = this.props
 
     return (
       <div className='my-posts'>
@@ -42,7 +40,7 @@ export class MyPosts extends Component {
         <h2>Your Posts</h2>
         {
           posts.map( post => (
-            <Post  className='post' key={post._id} text={post.text} nickname={post.owner.nickname} date={post.updatedAt.slice(0, 10)}/>
+            <Post  removePost={removePost}  user={user} className='post' key={post._id} id={post._id} text={post.text} nickname={post.owner.nickname} date={post.updatedAt.slice(0, 10)}/>
             
           ))
         }

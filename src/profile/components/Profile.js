@@ -23,10 +23,10 @@ export class Profile extends Component {
       <div className='profile'>
         <PostProvider user={user}>
           <PostConsumer>
-            { ({ posts, addPosts }) => (
+            { ({ posts, addPosts, removePost }) => (
               <React.Fragment>
                 <CreatePost addPosts={addPosts} posts={posts} user={user} />
-                <MyPosts addPosts={addPosts} posts={posts} user={user}/>
+                <MyPosts addPosts={addPosts} removePost={removePost} posts={posts} user={user}/>
               </React.Fragment>
             )}
             

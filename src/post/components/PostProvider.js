@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-// import Post from '../components/Post'
 
-
-// create a context object 
+// create a context object for user's Facebird posts
 const PostContext = React.createContext()
-
 
 export class PostProvider extends Component {
   constructor(props) {
@@ -21,14 +18,22 @@ export class PostProvider extends Component {
     }))
    
   }
-  
+
+  removePost = text => {
+    // finds the post by text and remove from state
+    this.setState( prevState => ({
+      posts: prevState.posts.filter(post => post.text != text)
+    }))
+    
+  }
 
   render() {
     return (
       // consumers can access data from this value prop
       <PostContext.Provider value={{
         posts: this.state.posts,
-        addPosts: this.addPosts
+        addPosts: this.addPosts,
+        removePost: this.removePost
       }}>
         {this.props.children}
       </PostContext.Provider>
