@@ -27,7 +27,7 @@ class Post extends Component {
 
   render() {
     const { date, nickname, text, id:owner, user, removePost, getUser } = this.props
-
+    console.log(this.props)
     return (
       <div className='post card'>
         <div className="post-header row">
