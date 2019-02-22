@@ -17,6 +17,10 @@ import Feed from './feed/components/feed'
 // profile component 
 import Profile from './profile/components/Profile'
 
+// posts context provider 
+import { PostProvider } from './post/components/PostProvider'
+
+
 class App extends Component {
   constructor () {
     super()
@@ -55,28 +59,31 @@ class App extends Component {
             <Header className='col-md-3' user={user} />
             {flashMessage && <h3 className={flashType}>{flashMessage}</h3>}
             
-            <main className='main text-center col-md-6' >
-              {/* Routes */}
-              <Route exact path='/' component={Home}/>
-              <Route path='/sign-up' render={() => (
-                <SignUp flash={this.flash} setUser={this.setUser} />
-              )} />
-              <Route path='/sign-in' render={() => (
-                <SignIn flash={this.flash} setUser={this.setUser} />
-              )} />
-              <AuthenticatedRoute user={user} path='/feed' render={() => (
-                <Feed className='' flash={this.flash} getUser={this.getUser} user={user} />
-              )} />
-              <AuthenticatedRoute user={user} path='/sign-out' render={() => (
-                <SignOut flash={this.flash} clearUser={this.clearUser} user={user} />
-              )} />
-              <AuthenticatedRoute user={user} path='/change-password' render={() => (
-                <ChangePassword flash={this.flash} user={user} />
-              )} />
-              <AuthenticatedRoute user={user} path='/profile' render={() => (
-                <Profile className='' flash={this.flash} getUser={this.getUser} user={user}/>
-              )} />
-            </main>
+            <PostProvider user={user}>
+              <main className='main text-center col-md-6' >
+                {/* Routes */}
+                <Route exact path='/' component={Home}/>
+                <Route path='/sign-up' render={() => (
+                  <SignUp flash={this.flash} setUser={this.setUser} />
+                )} />
+                <Route path='/sign-in' render={() => (
+                  <SignIn flash={this.flash} setUser={this.setUser} />
+                )} />
+                <AuthenticatedRoute user={user} path='/feed' render={() => (
+                  <Feed className='' flash={this.flash} getUser={this.getUser} user={user} />
+                )} />
+                <AuthenticatedRoute user={user} path='/sign-out' render={() => (
+                  <SignOut flash={this.flash} clearUser={this.clearUser} user={user} />
+                )} />
+                <AuthenticatedRoute user={user} path='/change-password' render={() => (
+                  <ChangePassword flash={this.flash} user={user} />
+                )} />
+                <AuthenticatedRoute user={user} path='/profile' render={() => (
+                  <Profile className='' flash={this.flash} getUser={this.getUser} user={user}/>
+                )} />
+              </main>
+            </PostProvider>
+            
           </React.Fragment>
 
         </div>

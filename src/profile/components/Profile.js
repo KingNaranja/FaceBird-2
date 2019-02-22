@@ -21,17 +21,15 @@ export class Profile extends Component {
 
     return (
       <div className='profile'>
-        <PostProvider user={user}>
-          <PostConsumer>
-            { ({ posts, addPosts, removePost }) => (
-              <React.Fragment>
-                <CreatePost addPosts={addPosts} posts={posts} user={user} />
-                <MyPosts addPosts={addPosts} removePost={removePost} posts={posts} user={user}/>
-              </React.Fragment>
-            )}
-            
-          </PostConsumer>
-        </PostProvider>
+        <PostConsumer>
+          { ({ posts, addPosts, removePost }) => (
+            <React.Fragment>
+              <CreatePost addPosts={addPosts} posts={posts} user={user} />
+              <MyPosts addPosts={addPosts} removePost={removePost} posts={posts} user={user}/>
+            </React.Fragment>
+          )}
+        </PostConsumer>
+      
       </div>
     )
   }
