@@ -41,7 +41,7 @@ export class AllPosts extends Component {
         <h2>#global</h2>
         {
           this.state.posts.map( post => (
-            <Post  className='post' key={post._id} text={post.text} nickname={post.owner.nickname} date={post.updatedAt.slice(0, 10)}/>
+            <Post   user={this.props.user} className='post' key={post._id} text={post.text} nickname={post.owner.nickname} owner={post.owner._id} date={post.updatedAt.slice(0, 10)}/>
             
           ))
         }

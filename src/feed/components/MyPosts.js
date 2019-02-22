@@ -40,7 +40,7 @@ export class MyPosts extends Component {
         <h2>Your Posts</h2>
         {
           posts.map( post => (
-            <Post  removePost={removePost}  user={user} className='post' key={post._id} id={post._id} text={post.text} nickname={post.owner.nickname} date={post.updatedAt.slice(0, 10)}/>
+            <Post  removePost={removePost}  user={user} className='post' key={post._id} id={post._id} text={post.text} nickname={post.owner.nickname} owner={post.owner._id} date={post.updatedAt.slice(0, 10)}/>
             
           ))
         }

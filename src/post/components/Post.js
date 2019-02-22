@@ -15,15 +15,18 @@ class Post extends Component {
 
   componentDidMount = () => {
     
-    const { nickname:owner, user } = this.props
+    const { owner, getUser, user } = this.props
+
     // set state if the post belongs to the user
     if ( user ) {
-      owner === user.nickname ? this.setState({isOwner:true}):null
+      owner === user._id ? this.setState({isOwner:true}):null
     }
+    
+    
   }
 
   render() {
-    const { date, nickname, text, id:owner, user, removePost } = this.props
+    const { date, nickname, text, id:owner, user, removePost, getUser } = this.props
 
     return (
       <div className='post card'>

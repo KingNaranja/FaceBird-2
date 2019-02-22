@@ -36,6 +36,7 @@ export class RecentPost extends Component {
             post: {
               text: response.post.text,
               id: response.post._id,
+              owner: response.post.owner._id,
               nickname: response.post.owner.nickname,
               // date is a substring of the full date object
               date: response.post.createdAt.slice(0, 10)
@@ -52,11 +53,12 @@ export class RecentPost extends Component {
 
   render() {
     const lastPost = this.state.post
+    console.log(this.props)
 
     return (
       <div className='recent-post abs'>
         <h2>Your Latest Post</h2>
-        <Post text={lastPost.text} date={lastPost.date} nickname={lastPost.nickname} id={lastPost.id}/>
+        <Post owner={lastPost.owner} text={lastPost.text} date={lastPost.date} nickname={lastPost.nickname} id={lastPost.id} getUser={this.props.getUser} />
       </div>
     )
   }
