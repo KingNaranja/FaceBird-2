@@ -12,7 +12,6 @@ class Feed extends Component {
     this.state = {
       
     }
-    console.log(this.props)
   }
 
   render() {

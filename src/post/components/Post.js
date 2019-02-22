@@ -14,7 +14,6 @@ class Post extends Component {
   }
 
   componentDidMount = () => {
-    
     const { owner, getUser, user } = this.props
 
     // set state if the post belongs to the user
@@ -27,7 +26,7 @@ class Post extends Component {
 
   render() {
     const { date, nickname, text, id:owner, user, removePost, getUser } = this.props
-    console.log(this.props)
+
     return (
       <div className='post card'>
         <div className="post-header row">
