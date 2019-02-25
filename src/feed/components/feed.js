@@ -22,7 +22,7 @@ class Feed extends Component {
         <PostConsumer>
           { ({ addPosts, removePost, posts, editPost }) => (
             <React.Fragment>
-              <RecentPost className='col-md' getUser={getUser} user={this.props.user} />
+              <RecentPost className='col-md' posts={posts} getUser={getUser} user={this.props.user} />
               <AllPosts posts={posts} addPosts={addPosts} editPost={editPost} removePost={removePost} className='col-md' getUser={this.props.getUser} user={this.props.user}/>
             </React.Fragment>
           )}
