@@ -6,7 +6,7 @@ import CreatePost from '../../post/components/Create-Post'
 import MyPosts from '../../feed/components/MyPosts'
 
 // posts context provider 
-import { PostConsumer, PostProvider } from '../../post/components/PostProvider'
+import { PostConsumer } from '../../post/components/PostProvider'
 
 
 export class Profile extends Component {
@@ -22,10 +22,10 @@ export class Profile extends Component {
     return (
       <div className='profile'>
         <PostConsumer>
-          { ({ posts, addPosts, removePost }) => (
+          { ({ posts, addPosts, removePost, editPost }) => (
             <React.Fragment>
               <CreatePost addPosts={addPosts} posts={posts} user={user} />
-              <MyPosts addPosts={addPosts} removePost={removePost} posts={posts} user={user}/>
+              <MyPosts addPosts={addPosts} editPost={editPost} removePost={removePost} posts={posts} user={user}/>
             </React.Fragment>
           )}
         </PostConsumer>

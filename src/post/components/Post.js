@@ -25,7 +25,7 @@ class Post extends Component {
   }
 
   render() {
-    const { date, nickname, text, id:owner, user, removePost, getUser } = this.props
+    const { date, nickname, text, id:owner, user, removePost, editPost } = this.props
 
     return (
       <div className='post card'>
@@ -38,7 +38,7 @@ class Post extends Component {
           {
             // display auth Buttons if post belongs to user
             this.state.isOwner && 
-            <PostButtons removePost={removePost} id={owner} user={user} text={text} />
+            <PostButtons editPost={editPost} removePost={removePost} id={owner} user={user} text={text} />
           }
         </div>
       </div>

@@ -20,10 +20,10 @@ class Feed extends Component {
     return (
       <div className='feed row no-gutters'> 
         <PostConsumer>
-          { ({ addPosts, removePost, posts }) => (
+          { ({ addPosts, removePost, posts, editPost }) => (
             <React.Fragment>
               <RecentPost className='col-md' getUser={getUser} user={this.props.user} />
-              <AllPosts posts={posts} addPosts={addPosts} removePost={removePost} className='col-md' getUser={this.props.getUser} user={this.props.user}/>
+              <AllPosts posts={posts} addPosts={addPosts} editPost={editPost} removePost={removePost} className='col-md' getUser={this.props.getUser} user={this.props.user}/>
             </React.Fragment>
           )}
         </PostConsumer>

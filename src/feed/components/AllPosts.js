@@ -31,14 +31,14 @@ export class AllPosts extends Component {
   }
 
   render() {
-    const { user, removePost, posts } = this.props
+    const { user, removePost, posts, editPost } = this.props
     return (
       <div>
         {/* all user's posts */}
         <h2>#global</h2>
         {
           posts.map( post => (
-            <Post removePost={ removePost } user={ user } className='post' key={ post._id } text={ post.text } nickname={ post.owner.nickname } id={ post._id } owner={ post.owner._id } date={ post.updatedAt.slice(0, 10) }/>
+            <Post editPost={editPost} removePost={ removePost } user={ user } className='post' key={ post._id } text={ post.text } nickname={ post.owner.nickname } id={ post._id } owner={ post.owner._id } date={ post.updatedAt.slice(0, 10) }/>
             
           ))
         }
