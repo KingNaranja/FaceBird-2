@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import { deletePost, updatePost } from '../post-api'
-
+import { UpdatePostModal } from '../components/Update-Post'
 
 export class PostButtons extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      showModal: false
+    }
   }
   
   onDeletePost = () => {
@@ -17,17 +20,38 @@ export class PostButtons extends Component {
 
   }
   
-  onUpdatePost = () => {
-    // take user and postId props and send request
-    // then update the post provider
+  onUpdatePost = (newPost) => {
+    const { id:postId, user, editPost } = this.props
+    // send patch request 
+    updatePost(user, newPost, postId)
+      .then(response => {return response.json()})
+      .then(post => editPost( postId,post ))
+
+    this.setState({ showModal: false })
+      
+      
+  }
+
+  showModal = event => {
+    event.preventDefault()
+    // show/hide modal state with modalVisible bool
+    const modalVisible = !this.state.showModal
+    this.setState({ showModal: modalVisible })
 
   }
 
   render() {
+
+    const { text } = this.props
+
     return (
       <div>
         <button className='btn-outline-dark delete-post' onClick={this.onDeletePost} >delete</button>
-        <button className='btn-outline-dark update-post' onClick={this.onUpdatePost} >edit</button>
+        <button className='btn-outline-dark update-post' onClick={this.showModal}>edit</button>
+        {
+          this.state.showModal && 
+          <UpdatePostModal updatePost={this.onUpdatePost} showModal={this.showModal} modalVisible={this.state.showModal} text={text} /> 
+        }
 
       </div>
     )
