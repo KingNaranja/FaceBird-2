@@ -12,8 +12,8 @@ export class RecentPost extends Component {
       post: {
         text: 'Join the Conversation!',
         id: null,
-        nickname: '',
-        date: null
+        owner: {nickname:'', _id:null},
+        updatedAt: ''
       }
     }
   }
@@ -25,6 +25,8 @@ export class RecentPost extends Component {
   }
 
   onGetLatestPost = () => {
+    const { setRecentPost, recentPost } = this.props
+
     // fetch last post
     getLatestPost(this.props.user)
       .then(response =>{return response.json()})
@@ -32,16 +34,7 @@ export class RecentPost extends Component {
 
         if (response.post) {
           // update state with the last post
-          this.setState({
-            post: {
-              text: response.post.text,
-              id: response.post._id,
-              owner: response.post.owner._id,
-              nickname: response.post.owner.nickname,
-              // date is a substring of the full date object
-              date: response.post.createdAt.slice(0, 10)
-            }
-          })
+          this.setState({ post: response.post })
         } else {
           return this.state.post
         }
@@ -50,6 +43,23 @@ export class RecentPost extends Component {
      
   }
 
+  componentDidUpdate = oldProps => {
+    const { posts, getUser }  = this.props
+    const user = getUser()
+    let newPost
+    
+    // if they're are updated posts 
+    if (oldProps.posts !== posts){
+      // find your most recent post 
+      newPost = posts.find(post =>{
+        return post.owner._id == user._id
+      })
+      // and update the state with that post 
+      this.setState({
+        post: newPost
+      })
+    }
+  }
 
   render() {
     const lastPost = this.state.post
@@ -57,7 +67,7 @@ export class RecentPost extends Component {
     return (
       <div className='recent-post abs'>
         <h2>Your Latest Post</h2>
-        <Post owner={lastPost.owner} text={lastPost.text} date={lastPost.date} nickname={lastPost.nickname} id={lastPost.id} getUser={this.props.getUser} />
+        <Post owner={lastPost.owner._id} text={lastPost.text} date={lastPost.updatedAt.slice(0, 10)} nickname={lastPost.owner.nickname} id={lastPost._id} getUser={this.props.getUser} />
       </div>
     )
   }
