@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../post.scss'
+import '../buttons.scss'
 
 import PostButtons from './Button'
 

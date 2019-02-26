@@ -45,9 +45,10 @@ export class PostButtons extends Component {
     const { text } = this.props
 
     return (
-      <div>
-        <button className='btn-outline-dark delete-post' onClick={this.onDeletePost} >delete</button>
-        <button className='btn-outline-dark update-post' onClick={this.showModal}>edit</button>
+      <div className='button'>
+        <button className='btn-outline-info update-post' onClick={this.showModal}>Edit</button>
+        <button className='btn-outline-danger delete-post' onClick={this.onDeletePost} >Delete</button>
+        
         {
           this.state.showModal && 
           <UpdatePostModal updatePost={this.onUpdatePost} showModal={this.showModal} modalVisible={this.state.showModal} text={text} /> 
