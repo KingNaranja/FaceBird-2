@@ -11,7 +11,7 @@ export class RecentPost extends Component {
     this.state = {
       post: {
         text: 'Join the Conversation!',
-        id: null,
+        _id: null,
         owner: {nickname:'', _id:null},
         updatedAt: ''
       }
@@ -49,13 +49,13 @@ export class RecentPost extends Component {
     let newPost
     
     // if they're are updated posts 
-    if (oldProps.posts !== posts){
+    if ( oldProps.posts !== posts ){
       // find your most recent post 
       newPost = posts.find(post =>{
         return post.owner._id == user._id
       })
       // and update the state with that post 
-      this.setState({
+      newPost && this.setState({
         post: newPost
       })
     }
@@ -63,11 +63,15 @@ export class RecentPost extends Component {
 
   render() {
     const lastPost = this.state.post
+    console.log(lastPost)
 
     return (
       <div className='recent-post abs'>
         <h2>Your Latest Post</h2>
-        <Post owner={lastPost.owner._id} text={lastPost.text} date={lastPost.updatedAt.slice(0, 10)} nickname={lastPost.owner.nickname} id={lastPost._id} getUser={this.props.getUser} />
+        
+        <Post owner={lastPost.owner._id} text={lastPost.text} date={lastPost.updatedAt.slice(0, 10)} nickname={lastPost.owner.nickname} id={lastPost._id} getUser={this.props.getUser} 
+        />
+        
       </div>
     )
   }
