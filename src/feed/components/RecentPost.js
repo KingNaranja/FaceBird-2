@@ -76,7 +76,6 @@ export class RecentPost extends Component {
 
   render() {
     const lastPost = this.state.post
-    console.log(lastPost)
 
     return (
       <div className='recent-post abs'>
