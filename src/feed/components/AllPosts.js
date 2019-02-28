@@ -33,7 +33,7 @@ export class AllPosts extends Component {
   render() {
     const { user, removePost, posts, editPost } = this.props
     return (
-      <div>
+      <div className='text-center'>
         {/* all user's posts */}
         <h2>#global</h2>
         {
