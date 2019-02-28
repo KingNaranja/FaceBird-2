@@ -27,13 +27,14 @@ class CreatePost extends Component {
 
     createPost( user, newPost )
       .then(response =>{ return response.json() })
-    
-    // get my posts and refresh feed
-    getAllMyPosts(user)
-      .then( res =>{return res.json()})
-      .then( res =>{
-        // update state with posts
-        addPosts(res.posts)
+      .then( () => { 
+        // get my posts and refresh feed
+        getAllMyPosts(user)
+          .then( res =>{return res.json()})
+          .then( res =>{
+            // update state with posts
+            addPosts(res.posts)
+          })
       })
       
   }
