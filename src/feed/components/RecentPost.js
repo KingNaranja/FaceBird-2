@@ -14,7 +14,8 @@ export class RecentPost extends Component {
         _id: null,
         owner: {nickname:'', _id:null},
         updatedAt: ''
-      }
+      },
+      deleted: false
     }
   }
 
@@ -54,10 +55,22 @@ export class RecentPost extends Component {
       newPost = posts.find(post =>{
         return post.owner._id == user._id
       })
-      // and update the state with that post 
-      newPost && this.setState({
-        post: newPost
-      })
+      
+      // if an updated post exists, 
+      // update the state with the newest post
+      // else if posts no longer exist, return to initial state
+      newPost ? 
+        this.setState({
+          post: newPost 
+        }) :
+        this.setState({
+          post: {
+            text: 'Join the Conversation!',
+            _id: null,
+            owner: {nickname:'', _id:null},
+            updatedAt: ''
+          }
+        })  
     }
   }
 
