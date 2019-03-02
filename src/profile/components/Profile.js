@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../profile.scss'
 // CreatePost Component
 import CreatePost from '../../post/components/Create-Post'
 // MyPost feed component 
@@ -7,7 +6,18 @@ import MyPosts from '../../feed/components/MyPosts'
 
 // posts context provider 
 import { PostConsumer } from '../../post/components/PostProvider'
+import styled from 'styled-components'
 
+// profile component styles 
+const ProfileWrapper = styled.div`
+  @media (min-width: 600px) {
+    height: 100vh;
+    width: 70vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-left: 2.5vw;
+  }
+`
 
 export class Profile extends Component {
   constructor(props) {
@@ -20,7 +30,7 @@ export class Profile extends Component {
     const { user } = this.props
 
     return (
-      <div className='profile'>
+      <ProfileWrapper>
         <PostConsumer>
           { ({ posts, addPosts, removePost, editPost }) => (
             <React.Fragment>
@@ -30,7 +40,7 @@ export class Profile extends Component {
           )}
         </PostConsumer>
       
-      </div>
+      </ProfileWrapper>
     )
   }
 }
