@@ -1,10 +1,25 @@
 import React, { Component } from 'react'
 import RecentPost from './RecentPost'
 import AllPosts from './AllPosts'
-import '../feed.scss'
 // posts context consumer 
 import { PostConsumer } from '../../post/components/PostProvider'
+import styled from 'styled-components'
 
+const FeedWrapper = styled.div`
+  margin-left: 1.5vw;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden; 
+  width: 75vw;
+
+  @media (max-width: 600px){
+    width: 100vw;
+    h1,h2 {
+      font-size: 100%;
+    }
+  }
+
+`
 
 class Feed extends Component {
   constructor(props) {
@@ -18,7 +33,7 @@ class Feed extends Component {
     const {getUser, setUser, user} = this.props
     
     return (
-      <div className='feed row no-gutters'> 
+      <FeedWrapper className='feed row no-gutters'> 
         <PostConsumer>
           { ({ addPosts, removePost, posts, editPost }) => (
             <React.Fragment>
@@ -27,7 +42,8 @@ class Feed extends Component {
             </React.Fragment>
           )}
         </PostConsumer>
-      </div>
+      </FeedWrapper>
+    
     )
   }
 }

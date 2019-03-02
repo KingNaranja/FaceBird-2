@@ -4,8 +4,16 @@ import { withRouter } from 'react-router-dom'
 import { signIn } from '../api'
 import messages from '../messages'
 import apiUrl from '../../apiConfig'
+import styled from 'styled-components'
 
-import '../auth.scss'
+const SignInForm = styled.form`
+  @media (min-width: 600px){
+    height: 75vh;
+    width: 75vw;
+    margin-left: 10vw;
+
+  }
+`
 
 class SignIn extends Component {
   constructor () {
@@ -40,7 +48,7 @@ class SignIn extends Component {
     const { email, password } = this.state
 
     return (
-      <form className='auth-form' onSubmit={this.signIn}>
+      <SignInForm className='auth-form' onSubmit={this.signIn}>
         <h3>Sign In</h3>
         <label htmlFor="email">Email</label>
         <input
@@ -61,7 +69,7 @@ class SignIn extends Component {
           onChange={this.handleChange}
         />
         <button type="submit">Sign In</button>
-      </form>
+      </SignInForm>
     )
   }
 }

@@ -4,6 +4,16 @@ import { withRouter } from 'react-router-dom'
 import { handleErrors, changePassword } from '../api'
 import messages from '../messages'
 import apiUrl from '../../apiConfig'
+import styled from 'styled-components'
+
+const ChangePassForm = styled.form`
+  @media (min-width: 600px){
+    height: 75vh;
+    width: 75vw;
+    margin-left: 10vw;
+
+  }
+`
 
 class ChangePassword extends Component {
   constructor () {
@@ -36,7 +46,7 @@ class ChangePassword extends Component {
     const { oldPassword, newPassword } = this.state
 
     return (
-      <form className='auth-form' onSubmit={this.changePassword}>
+      <ChangePassForm className='auth-form' onSubmit={this.changePassword}>
         <h3>Change Password</h3>
 
         <label htmlFor="oldpw">Old Password</label>
@@ -58,7 +68,7 @@ class ChangePassword extends Component {
           onChange={this.handleChange}
         />
         <button type="submit">Change Password</button>
-      </form>
+      </ChangePassForm>
     )
   }
 }
