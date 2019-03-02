@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import Post from '../../post/components/Post'
-import '../recentPost.scss'
-
 import { getLatestPost, updatePost, deletePost } from '../feed-api'
 
 export class RecentPost extends Component {
