@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import Nav from 'react-bootstrap/Nav'
 
 const MainHeader = styled.header`
-  align-items: center;
+  /* align-items: center; */
   border-right: 1px solid #bbb;
   display: flex;
-  height: 100vh;
-  padding: 0 1em;
   flex-direction: column;
-
+  height: 100vh;
+  
   a,
   span {
     color: #252B35;
@@ -21,42 +21,44 @@ const MainHeader = styled.header`
     }
   }
   
-
-  nav {
-    align-items: flex-start;
+  .user {
+    padding: 1em;
+    align-items: center;
     display: flex;
     flex-direction:  column;
     flex-grow: 1;
-    justify-content: space-evenly;
-
+    justify-content: space-evenly; 
+    height: 70vh;
   }
 
   @media (max-width: 600px) {
+    width: inherit;
+    margin-left: 10vw;
     flex-direction: column;
     font-size: 1em;
-    height: 20%;
-    width: 160%;
+    height: inherit;
     border-right: none;
-    border-bottom: 1px solid #bbb;
     h1 {
+      margin-left: 5vw;
       font-size: 2.5em;
     }
   }
 
   @media (max-width: 450px) {
-    nav {
+    padding-left: 0;
+    
+    .user {
       justify-content: space-between;
-      flex-direction: column;
-      width: 100%;
-      padding: 1em;
+      /* flex-direction: column; */
+      height: inherit;
+      .noAuth {
+        margin-left: 15vw;
+    }
       a,
       span {
         border-bottom: 1px solid #bbb;
         border-radius: 1em;
-        // margin-bottom: 5px;
         text-align: center;
-        width: 100%;
-        margin-left: -1vw;
       }
     }
   }
@@ -65,16 +67,27 @@ const MainHeader = styled.header`
 
 const authenticatedOptions = (
   <React.Fragment>
-    <Link to="/feed">Home</Link>
-    <Link to="/change-password">Change Password</Link>
-    <Link to="/sign-out">Sign Out</Link>
+    <Nav.Item as="li">
+      <Link to="/feed">Home</Link>
+    </Nav.Item>
+    <Nav.Item as="li">
+      <Link to="/change-password">Change Password</Link>
+    </Nav.Item>
+    <Nav.Item as="li">
+      <Link to="/sign-out">Sign Out</Link>
+    </Nav.Item>
+    
   </React.Fragment>
 )
 
 const unauthenticatedOptions = (
-  <React.Fragment>
-    <Link to="/sign-up">Sign Up</Link>
-    <Link to="/sign-in">Sign In</Link>
+  <React.Fragment >
+    <Nav.Item  className="noAuth" as="li">
+      <Link to="/sign-up">Sign Up</Link>
+    </Nav.Item >
+    <Nav.Item className="noAuth" as="li">
+      <Link to="/sign-in">Sign In</Link>
+    </Nav.Item>
   </React.Fragment>
 )
 
@@ -86,13 +99,24 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <MainHeader className="main-header">
-    <Link to={'/'}><h1>FaceBird</h1></Link>
-    <span>The Newest Social Network</span>
-    <nav className='nav flex-column justify-content'>
-      { user && <span>Welcome back, <Link to={ '/profile' }>{user.nickname}</Link></span>}
-      { user ? authenticatedOptions : unauthenticatedOptions }
-      { alwaysOptions }
-    </nav>
+
+    <Nav>
+      <Nav.Item >
+        <Nav.Link to={'/'}><h1>FaceBird</h1></Nav.Link>
+      </Nav.Item>
+      <Nav.Item >
+        <span>The Newest Social Network</span>
+      </Nav.Item>
+      <Nav.Item >
+        <Nav className='user flex-md-column'>
+          { user && <span>Welcome back, <Link to={ '/profile' }>{user.nickname}</Link></span>}
+          { user ? authenticatedOptions : unauthenticatedOptions }
+          { alwaysOptions }
+        </Nav>
+      </Nav.Item>
+
+    </Nav>
+    
   </MainHeader>
 )
 

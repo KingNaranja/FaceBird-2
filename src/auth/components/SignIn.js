@@ -8,8 +8,8 @@ import styled from 'styled-components'
 
 const SignInForm = styled.form`
   @media (min-width: 600px){
-    height: 75vh;
-    width: 75vw;
+    height: 60vh;
+    width: 70vw;
     margin-left: 10vw;
 
   }

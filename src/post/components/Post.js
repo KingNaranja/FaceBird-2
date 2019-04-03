@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 // create styled component wrapper 
 const PostWrapper = styled.div`
+  margin: 0;
   width: 70vw;
   border-radius: 2.5vh;
   .post-header {
