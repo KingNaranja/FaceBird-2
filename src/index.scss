@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans');
+
+
 html {
   height: 100%;
 }
@@ -19,6 +22,7 @@ body {
   width: 100%;
   flex-direction: row;
   overflow-x: hidden;
+  font-family: 'Montserrat', 'sans-serif';
 }
 
 @media (max-width: 600px){
