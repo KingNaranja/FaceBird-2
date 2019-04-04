@@ -33,7 +33,7 @@ const MainHeader = styled.header`
 
   @media (max-width: 600px) {
     width: inherit;
-    margin-left: 10vw;
+    margin-left: 5vw;
     flex-direction: column;
     font-size: 1em;
     height: inherit;
@@ -52,7 +52,8 @@ const MainHeader = styled.header`
       /* flex-direction: column; */
       height: inherit;
       .noAuth {
-        margin-left: 15vw;
+        margin-left: 22vw;
+        padding: 1vh;
     }
       a,
       span {
