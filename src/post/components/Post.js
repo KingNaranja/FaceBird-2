@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 // create styled component wrapper 
 const PostWrapper = styled.div`
+  background-color: #e6e9f0;
   margin: 0;
   width: 70vw;
   border-radius: 2.5vh;

@@ -14,8 +14,14 @@ body {
 }
 
 #root {
+  * {
+    
+  }
+  background: #e6e9f0;
   display: flex;
+  width: 100%;
   flex-direction: row;
+  overflow-x: hidden;
 }
 
 @media (max-width: 600px){
