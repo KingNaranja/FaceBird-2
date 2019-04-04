@@ -5,13 +5,13 @@ import { handleErrors, signUp, signIn } from '../api'
 import messages from '../messages'
 import apiUrl from '../../apiConfig'
 import styled from 'styled-components'
+import { FormControl, FormGroup, Button } from 'react-bootstrap/'
 
-const SignUpForm = styled.form`
+const SignUpForm = styled.div`
   @media (min-width: 600px){
-    height: 75vh;
-    width: 75vw;
-    margin-left: 10vw;
-
+    width: 100%; 
+    margin-left: 15vw;
+    margin-top: 15vw;
   }
 `
 
@@ -52,46 +52,20 @@ class SignUp extends Component {
     const { email, nickname, password, passwordConfirmation} = this.state
 
     return (
-      <SignUpForm className='auth-form' onSubmit={this.signUp}>
-        <h3>Sign Up</h3>
-
-        <label htmlFor="email">Email</label>
-        <input
-          required
-          name="email"
-          value={email}
-          type="email"
-          placeholder="Email"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="nickname">Nickname</label>
-        <input
-          required
-          name="nickname"
-          value={nickname}
-          type="nickname"
-          placeholder="Nickname"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          required
-          name="password"
-          value={password}
-          type="password"
-          placeholder="Password"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="passwordConfirmation">Confirm Password</label>
-        <input
-          required
-          name="passwordConfirmation"
-          value={passwordConfirmation}
-          type="password"
-          placeholder="Confirm Password"
-          onChange={this.handleChange}
-        />
-        <button type="submit">Sign Up</button>
+      <SignUpForm inline>
+        <FormGroup>
+          <FormControl name="email" type="email" onChange={this.handleChange} placeholder="Email" />
+        </FormGroup>
+        <FormGroup >
+          <FormControl name="nickname" type="nickname" onChange={this.handleChange} placeholder="Nickname" />
+        </FormGroup>
+        <FormGroup>
+          <FormControl name="password" type="password" onChange={this.handleChange} placeholder="Password" />
+        </FormGroup>
+        <FormGroup>
+          <FormControl name="passwordConfirmation" type="passwordConfirmation" onChange={this.handleChange} placeholder="Confirm Password" />
+        </FormGroup>
+        <Button onClick={this.signUp}>Sign Up</Button>
       </SignUpForm>
     )
   }

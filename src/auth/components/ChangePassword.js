@@ -5,12 +5,14 @@ import { handleErrors, changePassword } from '../api'
 import messages from '../messages'
 import apiUrl from '../../apiConfig'
 import styled from 'styled-components'
+import { FormControl, FormGroup, Button } from 'react-bootstrap/'
 
-const ChangePassForm = styled.form`
+
+const ChangePassForm = styled.div`
   @media (min-width: 600px){
-    height: 75vh;
-    width: 75vw;
-    margin-left: 10vw;
+    width: 100%; 
+    margin-left: 15vw;
+    margin-top: 15vw;
 
   }
 `
@@ -46,28 +48,14 @@ class ChangePassword extends Component {
     const { oldPassword, newPassword } = this.state
 
     return (
-      <ChangePassForm className='auth-form' onSubmit={this.changePassword}>
-        <h3>Change Password</h3>
-
-        <label htmlFor="oldpw">Old Password</label>
-        <input
-          required
-          name="oldPassword"
-          value={oldPassword}
-          type="password"
-          placeholder="Old Password"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="newPassword">New Password</label>
-        <input
-          required
-          name="newPassword"
-          value={newPassword}
-          type="password"
-          placeholder="New Password"
-          onChange={this.handleChange}
-        />
-        <button type="submit">Change Password</button>
+      <ChangePassForm inline>
+        <FormGroup>
+          <FormControl name="oldPassword" type="oldPassword" onChange={this.handleChange} placeholder="Old Password" />
+        </FormGroup>
+        <FormGroup>
+          <FormControl name="newPassword" type="newPassword" onChange={this.handleChange} placeholder="New Password" />
+        </FormGroup>
+        <Button onClick={this.changePassword}>Change Password</Button>
       </ChangePassForm>
     )
   }

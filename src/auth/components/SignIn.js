@@ -6,11 +6,14 @@ import messages from '../messages'
 import apiUrl from '../../apiConfig'
 import styled from 'styled-components'
 
-const SignInForm = styled.form`
+import { FormControl, FormGroup, Button } from 'react-bootstrap/'
+
+
+const SignInForm = styled.div`
   @media (min-width: 600px){
-    height: 60vh;
-    width: 70vw;
-    margin-left: 10vw;
+    width: 100%; 
+    margin-left: 15vw;
+    margin-top: 15vw;
 
   }
 `
@@ -48,27 +51,15 @@ class SignIn extends Component {
     const { email, password } = this.state
 
     return (
-      <SignInForm className='auth-form' onSubmit={this.signIn}>
-        <h3>Sign In</h3>
-        <label htmlFor="email">Email</label>
-        <input
-          required
-          type="email"
-          name="email"
-          value={email}
-          placeholder="Email"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          required
-          name="password"
-          value={password}
-          type="password"
-          placeholder="Password"
-          onChange={this.handleChange}
-        />
-        <button type="submit">Sign In</button>
+      
+      <SignInForm inline>
+        <FormGroup>
+          <FormControl name="email" type="email" onChange={this.handleChange} placeholder="Email" />
+        </FormGroup>
+        <FormGroup>
+          <FormControl name="password" type="password" onChange={this.handleChange} placeholder="Password" />
+        </FormGroup>
+        <Button onClick={this.signIn}>Login</Button>
       </SignInForm>
     )
   }
