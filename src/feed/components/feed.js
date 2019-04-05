@@ -6,14 +6,14 @@ import { PostConsumer } from '../../post/components/PostProvider'
 import styled from 'styled-components'
 
 const FeedWrapper = styled.div`
-  margin-left: 2.1em;
+  margin-left: 2.2em;
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden; 
   width: 70vw;
 
   @media (max-width: 600px){
-    margin-left: 10vw;
+    margin-left: 11.5vw;
     width: 100vw;
     h1,h2 {
       font-size: 100%;
