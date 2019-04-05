@@ -20,6 +20,9 @@ const MainHeader = styled.header`
       color: #4D6A6D;
     }
   }
+  h1{
+    margin-left: 3vw;
+  }
   .user {
     padding: 1em;
     align-items: center;
@@ -60,9 +63,9 @@ const MainHeader = styled.header`
         text-align: center;
       }
     }
-    .logo {
-      margin-left: 20vw;
-    }
+    /* .logo {
+      margin-left: 25vw;
+    } */
     .motto {
       margin-left: 7vw;
     }
@@ -138,10 +141,10 @@ const Header = ({ user }) => (
     <Nav>
       <Nav.Item >
         <span>
-          <Nav.Link href='/'><h1>
+          <Link to='/'><h1>
             FaceBird
             <FontAwesomeIcon  className='logo' size="lg" icon="dove" />
-          </h1></Nav.Link>
+          </h1></Link>
         </span>
         
       </Nav.Item>
