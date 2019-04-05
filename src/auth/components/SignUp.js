@@ -5,7 +5,8 @@ import { handleErrors, signUp, signIn } from '../api'
 import messages from '../messages'
 import apiUrl from '../../apiConfig'
 import styled from 'styled-components'
-import { FormControl, FormGroup, Button } from 'react-bootstrap/'
+import { FormControl, FormGroup, Button, FormLabel } from 'react-bootstrap/'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const SignUpForm = styled.div`
   @media (min-width: 600px){
@@ -54,15 +55,27 @@ class SignUp extends Component {
     return (
       <SignUpForm inline>
         <FormGroup>
+          <FormLabel>
+            <FontAwesomeIcon icon='envelope'/>
+            Email</FormLabel>
           <FormControl name="email" type="email" onChange={this.handleChange} placeholder="Email" />
         </FormGroup>
         <FormGroup >
+          <FormLabel>
+            <FontAwesomeIcon icon='user-edit'/>
+            Nickname</FormLabel>
           <FormControl name="nickname" type="nickname" onChange={this.handleChange} placeholder="Nickname" />
         </FormGroup>
         <FormGroup>
+          <FormLabel>
+            <FontAwesomeIcon icon='key'/>
+            Password</FormLabel>
           <FormControl name="password" type="password" onChange={this.handleChange} placeholder="Password" />
         </FormGroup>
         <FormGroup>
+          <FormLabel>
+            <FontAwesomeIcon icon='key'/>
+            Password Confirmation</FormLabel>
           <FormControl name="passwordConfirmation" type="passwordConfirmation" onChange={this.handleChange} placeholder="Confirm Password" />
         </FormGroup>
         <Button onClick={this.signUp}>Sign Up</Button>
