@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Nav from 'react-bootstrap/Nav'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const MainHeader = styled.header`
   /* align-items: center; */
@@ -9,7 +10,6 @@ const MainHeader = styled.header`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  
   a,
   span {
     color: #252B35;
@@ -20,7 +20,6 @@ const MainHeader = styled.header`
       color: #4D6A6D;
     }
   }
-  
   .user {
     padding: 1em;
     align-items: center;
@@ -30,7 +29,6 @@ const MainHeader = styled.header`
     justify-content: space-evenly; 
     height: 70vh;
   }
-
   @media (max-width: 600px) {
     width: inherit;
     margin-left: 5vw;
@@ -39,7 +37,7 @@ const MainHeader = styled.header`
     height: inherit;
     border-right: none;
     h1 {
-      margin-left: 5vw;
+      /* margin-left: 5vw; */
       font-size: 2.5em;
     }
   }
@@ -62,6 +60,12 @@ const MainHeader = styled.header`
         text-align: center;
       }
     }
+    .logo {
+      margin-left: 20vw;
+    }
+    .motto {
+      margin-left: 7vw;
+    }
   }
 
 `
@@ -69,13 +73,31 @@ const MainHeader = styled.header`
 const authenticatedOptions = (
   <React.Fragment>
     <Nav.Item as="li">
-      <Link to="/feed">Home</Link>
+      <Link 
+        to="/feed"
+        activeStyle={{
+          color: '#c9d8c5'
+        }}
+      >Home
+      </Link>
     </Nav.Item>
     <Nav.Item as="li">
-      <Link to="/change-password">Change Password</Link>
+      <Link 
+        to="/change-password"
+        activeStyle={{
+          color: '#c9d8c5'
+        }}
+      >Change Password
+      </Link>
     </Nav.Item>
     <Nav.Item as="li">
-      <Link to="/sign-out">Sign Out</Link>
+      <Link 
+        to="/sign-out"
+        activeStyle={{
+          color: '#c9d8c5'
+        }}
+      >Sign Out
+      </Link>
     </Nav.Item>
     
   </React.Fragment>
@@ -84,17 +106,29 @@ const authenticatedOptions = (
 const unauthenticatedOptions = (
   <React.Fragment >
     <Nav.Item  className="noAuth" as="li">
-      <Link to="/sign-up">Sign Up</Link>
+      <Link 
+        to="/sign-up"
+        activeStyle={{
+          color: '#c9d8c5'
+        }}
+      >Sign Up
+      </Link>
     </Nav.Item >
     <Nav.Item className="noAuth" as="li">
-      <Link to="/sign-in">Sign In</Link>
+      <Link 
+        to="/sign-in"
+        activeStyle={{
+          color: '#c9d8c5'
+        }}
+      >Sign In
+      </Link>
     </Nav.Item>
   </React.Fragment>
 )
 
 const alwaysOptions = (
   <React.Fragment>
-    {/* <Link to="/">Home</Link> */}
+    <FontAwesomeIcon icon="feather-alt"  />
   </React.Fragment>
 )
 
@@ -103,14 +137,26 @@ const Header = ({ user }) => (
 
     <Nav>
       <Nav.Item >
-        <Nav.Link to={'/'}><h1>FaceBird</h1></Nav.Link>
+        <span>
+          <Nav.Link href='/'><h1>
+            FaceBird
+            <FontAwesomeIcon  className='logo' size="lg" icon="dove" />
+          </h1></Nav.Link>
+        </span>
+        
       </Nav.Item>
       <Nav.Item >
-        <span>The Newest Social Network</span>
+        <span className='motto'>The Newest Social Network</span>
       </Nav.Item>
       <Nav.Item >
         <Nav className='user flex-md-column'>
-          { user && <span>Welcome back, <Link to={ '/profile' }>{user.nickname}</Link></span>}
+          { user && <span>Welcome back, <Link 
+            to={ '/profile' }
+            activeStyle={{
+              color: '#c9d8c5'
+            }}
+          >{user.nickname}
+          </Link></span>}
           { user ? authenticatedOptions : unauthenticatedOptions }
           { alwaysOptions }
         </Nav>
