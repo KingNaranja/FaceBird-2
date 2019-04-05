@@ -37,8 +37,8 @@ const MainHeader = styled.header`
     height: inherit;
     border-right: none;
     h1 {
-      /* margin-left: 5vw; */
       font-size: 2.5em;
+      margin-left: 4vw;
     }
   }
 
@@ -149,7 +149,7 @@ const Header = ({ user }) => (
         <span className='motto'>The Newest Social Network</span>
       </Nav.Item>
       <Nav.Item >
-        <Nav className='user flex-md-column'>
+        <Nav className='user flex-md-column text-center'>
           { user && <span>Welcome back, <Link 
             to={ '/profile' }
             activeStyle={{

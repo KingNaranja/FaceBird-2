@@ -23,6 +23,9 @@ body {
   flex-direction: row;
   overflow-x: hidden;
   font-family: 'Montserrat', 'sans-serif';
+  h1{
+    font-family: 'Open Sans';
+  }
 }
 
 @media (max-width: 600px){
