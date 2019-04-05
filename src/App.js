@@ -21,6 +21,11 @@ import Profile from './profile/components/Profile'
 import { PostProvider } from './post/components/PostProvider'
 import { Container, Row, Col } from 'react-bootstrap'
 
+// fontawesome icons 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faDove, faFeather, faFeatherAlt, faEnvelope, faKey, faUserEdit } from '@fortawesome/free-solid-svg-icons'
+
 class App extends Component {
   constructor () {
     super()
@@ -50,6 +55,10 @@ class App extends Component {
 
   render () {
     const { flashMessage, flashType, user } = this.state
+
+    // build a fontaweosme icon library
+    library.add(fab, faDove, faFeatherAlt, faEnvelope, faKey, faUserEdit)
+    
 
     return (
       <Container fluid>
