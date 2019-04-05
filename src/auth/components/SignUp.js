@@ -12,7 +12,7 @@ const SignUpForm = styled.div`
   @media (min-width: 600px){
     width: 100%; 
     margin-left: 15vw;
-    margin-top: 15vw;
+    margin-top: 7vw;
   }
 `
 
